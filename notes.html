@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>從 AI 能做到，到企業用得起來｜黃岳振</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <style>
+    :root { --bg: #FFFFFF; --ink: #1A1A1A; --muted: #5F6368; --line: #D9DCE1; --accent: #1B4979; --band: #F1F3F5; --bar2: #A9B4C2; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #121417; --ink: #E6E8EB; --muted: #A3A9B2; --line: #2E333A; --accent: #8FB4E3; --band: #1C2026; --bar2: #4A5566; color-scheme: dark; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans TC", system-ui, sans-serif; font-size: 18px; line-height: 1.75; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 32px max(16px, env(safe-area-inset-right)) 96px max(16px, env(safe-area-inset-left)); }
+    .top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .top a { color: var(--accent); }
+    h1 { font-size: 40px; line-height: 1.3; margin: 48px 0 12px; text-wrap: balance; }
+    h2 { font-size: 24px; line-height: 1.4; margin: 56px 0 12px; text-wrap: balance; }
+    p { margin: 0 0 16px; }
+    .meta { color: var(--muted); font-size: 15px; margin-bottom: 40px; }
+    .lead { font-size: 20px; }
+    ul { padding-left: 22px; margin: 0 0 16px; }
+    li { margin-bottom: 6px; }
+    .note { border-left: 3px solid var(--accent); padding-left: 16px; margin: 24px 0; }
+    .muted { color: var(--muted); font-size: 15px; }
+    .tbl-wrap { overflow-x: auto; margin: 16px 0 24px; }
+    table { border-collapse: collapse; width: 100%; font-size: 16px; }
+    th { background: var(--band); color: var(--muted); text-align: left; font-weight: 700; padding: 10px 12px; }
+    td { border-bottom: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+    .bars { display: grid; grid-template-columns: 150px 1fr 72px; gap: 10px 12px; align-items: center; margin: 16px 0 8px; font-size: 16px; }
+    .bar { height: 22px; background: var(--bar2); }
+    .bar.a { background: var(--accent); }
+    .num { font-variant-numeric: tabular-nums; text-align: right; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    @media (max-width: 560px) { h1 { font-size: 30px; } .bars { grid-template-columns: 110px 1fr 60px; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="./">← 回到作品集</a><span class="muted">黃岳振</span></div>
+
+  <h1>從 AI 能做到，到企業用得起來</h1>
+  <p class="meta">實習心得｜2026 年 11 月｜個人觀點，文中數字皆為假設示意，不是遠傳的實際成效</p>
+
+  <p class="lead">實習以前，我看 AI 多半看技術：模型能做什麼、能取代哪些工作。在遠傳參與流程自動化之後，我發現「AI 做得到」和「企業真的用起來、用得久」中間還隔了很多事。</p>
+  <p>我的看法是：技術進步決定企業轉型能走多遠，但工程能力、成本效益和組織能不能適應，決定它走多快、走多深。</p>
+
+  <h2>做得出 Demo，不代表能上線</h2>
+  <p>Demo 只要證明一件事做得到。正式上線還要顧到穩定、例外、資安、權限，還有之後誰來維護。我在實習中最常花時間的，也是把規則和例外整理清楚，讓流程在不同情況下都跑得對。</p>
+
+  <h2>任務被自動化，職位不一定消失</h2>
+  <p>一個職位是很多任務、專業判斷和責任的組合。AI 可能接手大量例行工作，剩下的例外處理、跨部門協調和最後的決定，常常還是要有人負責。</p>
+  <p>但企業不會等到 AI 能完全取代一個職位才調整人力。我覺得更值得看的是職位會怎麼被重新分工，以及整體需要多少人。</p>
+
+  <h2>先看問題，再選工具</h2>
+  <p>企業導入 AI 是為了降低成本、提高效率、改善品質或控制風險，用了多少 AI 本身不是目的。如果規則引擎、一般程式或 RPA 就能更便宜、更穩定地解決，就不一定需要生成式 AI。我做的業績拆分流程，業務規則就是寫成可以測試的規則引擎，沒有交給模型判斷。</p>
+
+  <h2>只加快一個步驟，整個流程未必變快</h2>
+  <p>如果某個步驟從一小時縮到一分鐘，但後面還是要人工審核、主管簽核、跨部門等待，整體時間不一定少很多。下面是一個假設的例子：</p>
+  <div class="bars" role="img" aria-label="假設例子：原始流程 180 分鐘，單一步驟 AI 化後 121 分鐘，連流程一起重新設計後約 31 分鐘">
+    <span>原始流程</span><div class="bar" style="width:100%"></div><span class="num">180 分</span>
+    <span>只自動化一步</span><div class="bar" style="width:67.2%"></div><span class="num">121 分</span>
+    <span>連流程一起改</span><div class="bar a" style="width:17.2%"></div><span class="num">31 分</span>
+  </div>
+  <p class="muted">假設數字：只自動化一步，總時間約少 32.8%；連審核與等待一起重新設計，約少 82.8%。</p>
+  <p>所以導入 AI 時，我會先看整條流程卡在哪裡，再決定要改哪一段。</p>
+
+  <h2>卡住的常常是組織，不是技術</h2>
+  <p>企業裡有很多長期累積的制度、業務規則和只有資深同事知道的做法。技術方案成熟了，也可能遇到：</p>
+  <ul>
+    <li>既有系統和資料架構接不起來</li>
+    <li>業務需求和技術理解有落差</li>
+    <li>使用者不習慣、也還不信任新工具</li>
+    <li>跨部門的權責分不清楚</li>
+    <li>法規、資安和公司治理的要求</li>
+    <li>上線之後沒有人力持續維護</li>
+  </ul>
+
+  <h2>成本不會消失，會換個地方出現</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>可能減少</th><th>可能新增</th></tr></thead>
+      <tbody>
+        <tr><td>人工處理時間</td><td>系統開發與維護</td></tr>
+        <tr><td>重複操作</td><td>模型推論與運算費用</td></tr>
+        <tr><td>人為疏失</td><td>監控 AI 出錯</td></tr>
+        <tr><td>找資料的時間</td><td>知識庫與資料治理</td></tr>
+        <tr><td>人工追蹤流程</td><td>系統治理與稽核</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>所以評估時要看整體持有成本、投資報酬和風險，不能只算省了幾個工時。</p>
+
+  <h2>現在的限制，不一定會一直存在</h2>
+  <p>今天導入困難，不代表 AI 以後不會大規模改變工作。模型更可靠、整合更標準、運算更便宜，企業也逐步完成數位化之後，很多障礙可能會消失。這些困難比較能解釋轉型的速度和路徑，不太能說明它最後會走到哪裡。</p>
+
+  <h2>這對我的意義</h2>
+  <p>這段實習讓我確定，我想培養的不只是 AI 技術，還有商業分析、系統設計和管理判斷：先弄清楚企業真正要解決的問題，再把技術做成可以衡量、可以長期維護的改善。</p>
+  <div class="note"><p>我的整理：AI 提供能力，流程決定價值落在哪裡，組織決定能不能落地，最後要看的是商業效益。</p></div>
+</div>
+</body>
+</html>

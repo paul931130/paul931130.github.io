@@ -96,10 +96,10 @@ a {
 }
 
 button {
-  min-height: 44px;
+  min-height: 40px;
   padding: 6px 14px;
-  border: 1px solid var(--line);
-  border-radius: 3px;
+  border: 1px solid var(--muted);
+  border-radius: 0;
   background: var(--bg);
   color: var(--accent);
   font: 700 15px / 1.3 var(--font);
@@ -183,13 +183,23 @@ button:hover {
   font-weight: 700;
 }
 
-.note, figcaption, .copy-status, .site-footer {
+.note, figcaption, .copy-status, .site-footer, .progress-list {
   color: var(--muted);
   font-size: 15px;
 }
 
 .note, figcaption {
   margin-top: 14px;
+}
+
+.accent-note {
+  padding-left: 16px;
+  border-left: 3px solid var(--accent);
+}
+
+.progress-list {
+  margin: 14px 0 0;
+  list-style: none;
 }
 
 .split {
@@ -256,6 +266,21 @@ thead th {
   color: var(--muted);
 }
 
+tbody th[scope="row"] {
+  font-weight: 400;
+}
+
+.table--emphasis tr > :last-child {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.table--grades tr > :last-child {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
 table caption {
   caption-side: bottom;
   padding-top: 8px;
@@ -270,7 +295,15 @@ table caption {
 
 .results figcaption {
   margin: 0;
+}
+
+.results h3 {
   color: var(--ink);
+}
+
+.results figure {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
 }
 
 #sales-credit h2 {
@@ -283,63 +316,122 @@ table caption {
 
 .flow ol, .timing ol {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.flow-step, .timing li {
-  display: grid;
-  align-content: center;
-  padding: 10px 8px;
-  text-align: center;
+.flow ol {
+  grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr) 24px minmax(0, 1fr);
+  grid-template-areas: "settings first-line shared second-line notify";
 }
 
 .flow-step {
-  position: relative;
+  display: grid;
+  align-content: center;
+  padding: 10px 8px;
   border: 1px solid var(--line);
   background: var(--band);
   font-size: 15px;
-  font-weight: 700;
+  text-align: center;
 }
 
-.flow-step + .flow-step::before {
-  position: absolute;
-  top: 50%;
-  right: calc(100% + 6px);
-  width: 12px;
-  height: 12px;
-  border-top: 2px solid var(--accent);
-  border-right: 2px solid var(--accent);
+.flow-step:first-child {
+  grid-area: settings;
+}
+
+.flow-step--shared {
+  grid-area: shared;
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.flow-step:last-child {
+  grid-area: notify;
+}
+
+.flow ol::before, .flow ol::after {
+  align-self: center;
+  height: 1px;
+  background: var(--muted);
   content: "";
-  transform: translate(-2px, -50%) rotate(45deg);
+}
+
+.flow ol::before {
+  grid-area: first-line;
+}
+
+.flow ol::after {
+  grid-area: second-line;
 }
 
 .timing ol {
-  gap: 1px;
-  padding-top: 1px;
-  background: var(--line);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  text-align: center;
+}
+
+.timing ol::before, .timing ol::after {
+  grid-row: 2;
+  content: "";
+}
+
+.timing ol::before {
+  grid-column: 1;
+  border-top: 1px solid var(--accent);
+}
+
+.timing ol::after {
+  grid-column: 2;
+  border-top: 1px dashed var(--muted);
 }
 
 .timing li {
-  background: var(--bg);
+  max-width: none;
   color: var(--muted);
   font-size: 15px;
 }
 
-.timing .timing-date {
-  background: var(--band);
+.timing .timing-before, .timing .timing-date {
   color: var(--accent);
   font-weight: 700;
 }
 
+.timing-date {
+  position: relative;
+  grid-area: 1 / 1 / 2 / -1;
+  padding-bottom: 12px;
+}
+
+.timing-date::after {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 1px;
+  height: 18px;
+  background: var(--accent);
+  content: "";
+}
+
+.timing-before, .timing-after {
+  grid-row: 3;
+  padding: 10px 8px 0;
+}
+
+.timing-before {
+  grid-column: 1;
+}
+
+.timing-after {
+  grid-column: 2;
+}
+
 .bar-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 6px 12px;
-  align-items: baseline;
+  grid-template-columns: clamp(4.5rem, 30%, 8rem) minmax(0, 1fr) 3.5em;
+  gap: 12px;
+  align-items: center;
 }
 
 .bar-row + .bar-row {
@@ -347,9 +439,11 @@ table caption {
 }
 
 .bar-track {
-  grid-column: 1 / -1;
-  height: 12px;
-  background: var(--band);
+  height: 22px;
+}
+
+.bar-row data {
+  text-align: right;
 }
 
 .bar-fill {
@@ -373,6 +467,10 @@ table caption {
   align-items: center;
   gap: 12px 16px;
   overflow-wrap: anywhere;
+}
+
+#email {
+  text-decoration: underline;
 }
 
 .copy-status {
@@ -417,20 +515,32 @@ table caption {
     padding-bottom: 32px;
   }
 
-  .split, .flow ol, .timing ol {
+  .split {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .flow-step + .flow-step::before {
-    top: auto;
-    right: auto;
-    bottom: calc(100% + 7px);
-    left: 50%;
-    transform: translateX(-50%) rotate(135deg);
   }
 
   th, td {
     padding-inline: 8px;
+  }
+}
+
+@media (width <= 768px) {
+  .flow ol {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 24px auto 24px auto;
+    grid-template-areas:
+      "settings"
+      "first-line"
+      "shared"
+      "second-line"
+      "notify";
+  }
+
+  .flow ol::before, .flow ol::after {
+    align-self: stretch;
+    justify-self: center;
+    width: 1px;
+    height: auto;
   }
 }
 
