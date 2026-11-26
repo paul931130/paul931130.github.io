@@ -458,6 +458,11 @@ table caption {
 
 .bar-fill.switched {
   width: 55%;
+  background: var(--accent);
+}
+
+.bar-fill.baseline {
+  width: 62.2%;
   background: var(--bar2);
 }
 
