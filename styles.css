@@ -554,3 +554,6 @@ table caption {
     scroll-behavior: auto;
   }
 }
+
+/* Avoid single-character last lines in Chinese text */
+p, td, th, li, .intro { text-wrap: pretty; }
